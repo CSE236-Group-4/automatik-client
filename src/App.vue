@@ -1,12 +1,25 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+  <b-container>
+        <router-view v-on:auth="updateAuth" />
+    </b-container>
 </template>
+
+<script>
+import auth from './auth';
+
+export default {
+    data() {
+        return {
+            loggedIn: auth.loggedIn(),
+        };
+    },
+    methods: {
+        updateAuth() {
+            this.loggedIn = auth.loggedIn();
+        },
+    },
+};
+</script>
 
 <style lang="scss">
 #app {

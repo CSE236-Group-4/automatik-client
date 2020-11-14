@@ -1,14 +1,14 @@
 import axios from 'axios';
 
 export default {
-    login(email: string, password: string, callback: Function) {
+    login(employeeId: string, password: string, callback: Function) {
         if (localStorage.token) {
             if (callback) callback(true);
             return;
         }
         /* Backend required
         axios
-            .post('/users/login', { email: email, password: password })
+            .post('/users/login', { employeeId: employeeId, password: password })
             .then(res => {
                 if (res.data.token) {
                     localStorage.token = res.data.token;
