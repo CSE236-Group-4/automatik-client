@@ -6,6 +6,10 @@ export default {
             if (callback) callback(true);
             return;
         }
+        // Temp logic for testing
+        localStorage.token = 'faketokenidhere';
+        localStorage.userId = '12345';
+        if (callback) callback(true);
         /* Backend required
         axios
             .post('/users/login', { employeeId: employeeId, password: password })
@@ -33,6 +37,9 @@ export default {
     },
 
     logout(callback?: Function) {
+        delete localStorage.token;
+        delete localStorage.userId;
+        if (callback) callback();
         /* Backend required
         axios
             .post(

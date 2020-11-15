@@ -1,7 +1,8 @@
 <template>
-    <b-card>
+    <b-card class="">
+        <b-img center :src="require('../assets/Automatic_Logo.png')" fluid alt="automatik logo"></b-img>
         <b-alert :show="error" variant="danger">Login credentials do not match</b-alert>
-        <b-form @submit.prevent="login">
+        <b-form @submit.prevent="login" class="w-75 mx-auto">
             <b-form-group label="Employee Id:" label-for="input-1">
                 <b-form-input
                     id="input-1"
