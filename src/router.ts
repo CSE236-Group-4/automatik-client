@@ -5,6 +5,7 @@ import Home from './components/Home.vue';
 import Login from './components/Login.vue';
 import Employees from './components/Employees.vue';
 import Schedules from './components/Schedules.vue';
+import Register from './components/Register.vue';
 
 Vue.use(VueRouter);
 
@@ -49,6 +50,12 @@ const routes: Array<RouteConfig> = [
                 next('/login');
             }
         },
+    },
+    {
+        path: '/register',
+        name: 'Register',
+        component: Register,
+
     },
     {
         path: '*',
