@@ -1,7 +1,7 @@
 <template>
   <b-container class="h-100">
         <router-view v-on:auth="updateAuth" />
-    </b-container>
+  </b-container>
 </template>
 
 <script>
