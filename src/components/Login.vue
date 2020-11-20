@@ -15,8 +15,8 @@
             <b-form-group label="Password:" label-for="input-2">
                 <b-form-input
                     id="input-2"
-                    v-model="password"
-                    placeholder="password"
+                    v-model="Password"
+                    placeholder="Password"
                     type="password"
                     required
                 ></b-form-input>
@@ -38,14 +38,14 @@ import auth from '../auth';
 export default {
     data() {
         return {
-            employeeId: '',
+            userName: '',
             password: '',
             error: false,
         };
     },
     methods: {
         login() {
-            auth.login(this.employeeId, this.password, loggedIn => {
+            auth.login(this.userName, this.password, loggedIn => {
                 if (!loggedIn) {
                     this.error = true;
                 } else {

@@ -6,7 +6,7 @@
         		<b-table :items="scheduleTable" :fields="scheduleFields" bordered head-variant="dark" class="schedule-table"></b-table>
         	</b-col>
         	<b-col class="col-4">
-        		<v-calendar></v-calendar>
+        		<b-calendar></b-calendar>
         	</b-col>
         </b-row>
         <b-row>
