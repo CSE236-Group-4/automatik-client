@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export default {
-    login(employeeId: string, password: string, callback: Function) {
+    login(username: string, password: string, callback: Function) {
         if (localStorage.token) {
             if (callback) callback(true);
             return;
