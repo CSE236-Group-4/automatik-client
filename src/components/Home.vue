@@ -114,7 +114,7 @@ export default {
         },
         logout() {
             auth.logout();
-        }
+        },
     },
     created() {
         this.getEmployee();
