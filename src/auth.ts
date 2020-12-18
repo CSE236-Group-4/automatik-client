@@ -29,6 +29,15 @@ export default {
         if (callback) callback();
     },
 
+    createAuthUser(email: string, password: string): void {
+        firebase
+            .auth()
+            .createUserWithEmailAndPassword(email, password)
+            .catch(function(error) {
+              console.error(error);
+            });
+    },
+
     getToken(): string {
         return localStorage.token;
     },

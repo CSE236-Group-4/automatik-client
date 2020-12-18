@@ -221,10 +221,11 @@ export default {
             this.newEmployee.employeeId = uuidv4();
             this.newEmployee.companyId = this.companyId;
             db.collection('employees').add(this.newEmployee);
+            auth.createAuthUser(this.newEmployee.email, 'changeme');
             this.$refs['add-modal'].hide();
         },
         updateEmployee() {
-            db.collection('users')
+            db.collection('employees')
               .doc(this.selectedEmployee.id)
               .set(this.selectedEmployee)
               .then(() => {
