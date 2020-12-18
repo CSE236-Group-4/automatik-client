@@ -2,6 +2,7 @@
     <b-container class="p-0">
         <b-button to="/" class="mt-3">Home</b-button>
         <h1 class="text-center pt-3">{{ companyName }} Schedules</h1>
+        <b-button @click="logout()" to="/login" class="float-right">Logout</b-button>
         <b-row>
             <b-col class="col-1">
                 <b-button>Create</b-button>
@@ -109,6 +110,9 @@ export default {
                 day = '0' + day;
             }
             return [month, day, year].join('/');
+        },
+        logout() {
+            auth.logout();
         },
     },
     created() {

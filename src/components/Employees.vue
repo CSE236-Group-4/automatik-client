@@ -2,6 +2,7 @@
     <b-container class="p-0">
         <b-button to="/" class="mt-3">Home</b-button>
         <h1 class="text-center pt-3">{{ companyName }} Employees</h1>
+        <b-button @click="logout()" to="/login" class="float-right">Logout</b-button>
         <b-row>
             <b-col class="col-1">
                 <b-button @click="getAddModal">Create</b-button>
@@ -241,6 +242,9 @@ export default {
               .doc(this.selectedEmployee.id)
               .delete();
               this.$refs['delete-modal'].hide();
+        },
+        logout() {
+            auth.logout();
         },
     },
     created() {
