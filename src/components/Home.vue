@@ -3,6 +3,7 @@
         <h1 class="text-center pt-3">
             Welcome {{ user.firstName }} {{ user.lastName }}
         </h1>
+        <b-button @click="logout()" to="/login" class="float-right">Logout</b-button>
         <b-row class="py-3">
             <b-col class="col-8">
                 <b-table
@@ -111,6 +112,9 @@ export default {
             }
             return [month, day, year].join('/');
         },
+        logout() {
+            auth.logout();
+        }
     },
     created() {
         this.getEmployee();

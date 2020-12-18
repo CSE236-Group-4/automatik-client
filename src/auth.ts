@@ -29,10 +29,18 @@ export default {
         if (callback) callback();
     },
 
-    createAuthUser(email: string, password: string): void {
+    createAuthUser(email: string, password: string, callback: Function): void {
         firebase
             .auth()
             .createUserWithEmailAndPassword(email, password)
+            .then(data => {
+                if (data.user) {
+                    callback(data.user.uid);
+                }
+                else {
+                    callback('');
+                }
+            })
             .catch(function(error) {
               console.error(error);
             });

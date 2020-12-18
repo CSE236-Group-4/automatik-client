@@ -177,8 +177,8 @@ export default {
                 db
                     .collection('employees')
                     .where('companyId', '==', this.companyId),
-            ).then(employees => {
-                console.log(employees);
+            ).catch(error => {
+                console.error(error);
             });
         },
         getFirstDayOfWeek(date) {
@@ -218,10 +218,13 @@ export default {
             this.$refs['add-modal'].show();
         },
         addEmployee() {
-            this.newEmployee.employeeId = uuidv4();
             this.newEmployee.companyId = this.companyId;
-            db.collection('employees').add(this.newEmployee);
-            auth.createAuthUser(this.newEmployee.email, 'changeme');
+            auth.createAuthUser(this.newEmployee.email, 'changeme', userId => {
+                if (userId != '') {
+                    this.newEmployee.employeeId = userId;
+                    db.collection('employees').doc(userId).set(this.newEmployee);
+                }
+            });
             this.$refs['add-modal'].hide();
         },
         updateEmployee() {
